@@ -1,0 +1,554 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Zohra Anwar | Revenue Operations & GTM Enablement</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;1,400&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    /* ====== Variables ====== */
+    :root {
+      --bg: #f5f2ed;
+      --paper: #faf9f7;
+      --ink: #1a2228;
+      --muted: #556068;
+      --line: rgba(26,34,40,.10);
+      --accent: #2d6a4f;
+      --accent-light: #b7d4c8;
+      --accent-pale: rgba(183,212,200,.25);
+      --shadow-sm: 0 4px 16px rgba(26,34,40,.07);
+      --shadow-md: 0 12px 40px rgba(26,34,40,.10);
+      --radius: 20px;
+      --serif: 'Lora', Georgia, serif;
+      --sans: 'DM Sans', system-ui, sans-serif;
+      --nav-h: 64px;
+    }
+
+    /* ====== Reset ====== */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; font-size: 16px; }
+    body {
+      font-family: var(--sans);
+      color: var(--ink);
+      background: var(--bg);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    /* ====== Animated grain texture ====== */
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
+      background-size: 180px 180px;
+      pointer-events: none;
+      z-index: 0;
+      opacity: 0.6;
+    }
+
+    /* ====== Layout ====== */
+    .wrap { max-width: 1080px; margin: 0 auto; padding: 0 24px; position: relative; z-index: 1; }
+    .section { padding: 80px 0; }
+    .section-tint { background: linear-gradient(180deg, rgba(255,255,255,.6) 0%, rgba(255,255,255,.2) 100%); }
+
+    /* ====== Nav ====== */
+    .site-header {
+      position: sticky; top: 0; z-index: 100;
+      background: rgba(245,242,237,.82);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border-bottom: 1px solid var(--line);
+      transition: box-shadow .2s;
+    }
+    .site-header.scrolled { box-shadow: var(--shadow-sm); }
+    .nav-wrap {
+      height: var(--nav-h);
+      display: flex; align-items: center; justify-content: space-between; gap: 16px;
+    }
+    .logo {
+      text-decoration: none; color: var(--ink);
+      font-weight: 700; font-size: 15px; letter-spacing: -.01em;
+    }
+    .logo span {
+      display: block; font-size: 11px; font-weight: 500;
+      color: var(--muted); margin-top: 1px; letter-spacing: .04em;
+    }
+    .nav { display: flex; align-items: center; gap: 4px; }
+    .nav a {
+      text-decoration: none; color: var(--muted); font-weight: 600; font-size: 13.5px;
+      padding: 8px 12px; border-radius: 12px; transition: all .15s;
+    }
+    .nav a:hover { color: var(--ink); background: rgba(255,255,255,.6); }
+    .nav-cta {
+      color: var(--ink) !important;
+      background: var(--accent-pale);
+      border: 1px solid rgba(45,106,79,.22);
+    }
+    .nav-cta:hover { background: rgba(183,212,200,.45) !important; }
+
+    /* ====== Hero ====== */
+    .hero {
+      padding: 60px 0 56px;
+      position: relative;
+    }
+    /* Decorative blobs */
+    .hero::before {
+      content: "";
+      position: absolute;
+      width: 500px; height: 500px;
+      background: radial-gradient(circle, rgba(45,106,79,.08) 0%, transparent 70%);
+      top: -100px; right: -100px;
+      pointer-events: none;
+    }
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.25fr .75fr;
+      gap: 24px; align-items: stretch;
+    }
+    .hero-copy {
+      background: var(--paper);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 40px 38px;
+      box-shadow: var(--shadow-md);
+      animation: fadeUp .5s ease both;
+    }
+    .eyebrow {
+      display: inline-flex; align-items: center; gap: 6px;
+      margin-bottom: 16px;
+      font-size: 11.5px; letter-spacing: .1em; text-transform: uppercase;
+      color: var(--accent);
+      background: var(--accent-pale);
+      border: 1px solid rgba(45,106,79,.18);
+      padding: 7px 13px; border-radius: 999px;
+    }
+    .eyebrow::before { content: "●"; font-size: 8px; animation: pulse 2s infinite; }
+    @keyframes pulse { 0%,100%{opacity:1} 50%{opacity:.3} }
+
+    .hero h1 {
+      font-family: var(--serif);
+      font-size: 48px; line-height: 1.08;
+      letter-spacing: -.025em;
+      margin-bottom: 16px;
+    }
+    .hero h1 em {
+      font-style: italic; color: var(--accent);
+    }
+    .subhead {
+      color: var(--muted); line-height: 1.75;
+      max-width: 58ch; font-size: 15.5px;
+    }
+
+    .btn-row { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 24px; }
+    .btn {
+      display: inline-flex; align-items: center; justify-content: center;
+      padding: 11px 18px; border-radius: 14px;
+      border: 1px solid var(--line);
+      background: #fff; color: var(--ink);
+      text-decoration: none; font-weight: 700; font-size: 13.5px;
+      transition: all .15s ease; cursor: pointer;
+    }
+    .btn:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(26,34,40,.12); }
+    .btn.primary {
+      background: var(--accent); color: #fff;
+      border-color: transparent;
+      box-shadow: 0 4px 16px rgba(45,106,79,.3);
+    }
+    .btn.primary:hover { background: #256045; box-shadow: 0 8px 28px rgba(45,106,79,.35); }
+    .btn.ghost { background: var(--accent-pale); border-color: rgba(45,106,79,.2); }
+
+    .meta { margin-top: 20px; color: var(--muted); font-size: 12.5px; }
+    .meta strong { color: var(--ink); }
+
+    /* Hero card */
+    .hero-card {
+      border: 1px solid var(--line); border-radius: var(--radius);
+      overflow: hidden; background: var(--paper);
+      box-shadow: var(--shadow-md);
+      display: flex; flex-direction: column;
+      animation: fadeUp .5s .1s ease both;
+    }
+    .hero-photo {
+      width: 100%; height: 300px;
+      object-fit: cover; display: block;
+      background: linear-gradient(135deg, var(--accent-light) 0%, #e8f0ec 100%);
+    }
+    /* Placeholder when no photo */
+    .hero-photo-placeholder {
+      width: 100%; height: 300px;
+      background: linear-gradient(135deg, #d4e8de 0%, #e8f0ec 50%, #c7ddd5 100%);
+      display: flex; flex-direction: column;
+      align-items: center; justify-content: center; gap: 10px;
+      color: var(--accent); font-weight: 600; font-size: 14px;
+    }
+    .hero-photo-placeholder svg { opacity: .5; }
+    .hero-card-inner { padding: 20px 22px 26px; flex: 1; }
+    .card-title { font-weight: 800; font-size: 13px; text-transform: uppercase; letter-spacing: .08em; margin-bottom: 12px; }
+    .card-list { padding-left: 0; list-style: none; color: var(--muted); line-height: 1; }
+    .card-list li {
+      display: flex; align-items: flex-start; gap: 8px;
+      padding: 7px 0; border-bottom: 1px solid var(--line); font-size: 13.5px;
+    }
+    .card-list li:last-child { border-bottom: none; }
+    .card-list li::before { content: "→"; color: var(--accent); font-weight: 700; flex-shrink: 0; margin-top: 1px; }
+
+    /* ====== Section head ====== */
+    .section-head { margin-bottom: 28px; }
+    .section-head h2 {
+      font-family: var(--serif);
+      font-size: 30px; letter-spacing: -.02em; margin-bottom: 6px;
+    }
+    .section-head p { color: var(--muted); max-width: 64ch; }
+
+    /* ====== Project cards ====== */
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0,1fr));
+      gap: 16px; margin-top: 8px;
+    }
+    .card {
+      background: var(--paper); border: 1px solid var(--line);
+      border-radius: var(--radius); padding: 22px;
+      box-shadow: var(--shadow-sm);
+      display: flex; flex-direction: column;
+      transition: transform .2s, box-shadow .2s;
+    }
+    .card:hover { transform: translateY(-3px); box-shadow: var(--shadow-md); }
+    .card-icon {
+      width: 40px; height: 40px; border-radius: 12px;
+      background: var(--accent-pale); border: 1px solid rgba(45,106,79,.15);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 18px; margin-bottom: 14px;
+    }
+    .card h3 {
+      font-family: var(--serif); font-size: 17px;
+      letter-spacing: -.01em; margin-bottom: 8px;
+    }
+    .card p { color: var(--muted); font-size: 14px; line-height: 1.65; }
+    .tags { display: flex; gap: 6px; flex-wrap: wrap; margin-top: auto; padding-top: 14px; }
+    .tags span {
+      font-size: 11.5px; padding: 5px 10px; border-radius: 999px;
+      border: 1px solid rgba(45,106,79,.18);
+      background: var(--accent-pale); color: var(--accent);
+      font-weight: 700; letter-spacing: .02em;
+    }
+    .link {
+      margin-top: 12px; text-decoration: none;
+      font-weight: 800; font-size: 13.5px; color: var(--accent);
+      display: inline-flex; align-items: center; gap: 4px;
+    }
+    .link:hover { opacity: .75; gap: 7px; transition: gap .15s; }
+
+    /* ====== Experience timeline ====== */
+    .timeline { margin-top: 8px; display: flex; flex-direction: column; gap: 0; }
+    .timeline-item {
+      display: grid; grid-template-columns: 140px 1fr;
+      gap: 0 24px; position: relative; padding-bottom: 28px;
+    }
+    .timeline-item:last-child { padding-bottom: 0; }
+    .timeline-date {
+      text-align: right; padding-top: 3px;
+      font-size: 12px; color: var(--muted); font-weight: 600;
+      letter-spacing: .03em; text-transform: uppercase;
+    }
+    .timeline-body {
+      border-left: 2px solid var(--line); padding-left: 24px; position: relative;
+    }
+    .timeline-body::before {
+      content: "";
+      position: absolute; left: -7px; top: 6px;
+      width: 12px; height: 12px; border-radius: 50%;
+      background: var(--accent); border: 2px solid var(--bg);
+      box-shadow: 0 0 0 2px var(--accent-light);
+    }
+    .timeline-body h3 { font-size: 16px; font-weight: 700; margin-bottom: 2px; }
+    .timeline-body .company { font-size: 13px; color: var(--accent); font-weight: 600; margin-bottom: 8px; }
+    .timeline-body p { font-size: 14px; color: var(--muted); line-height: 1.65; }
+
+    /* ====== Certs ====== */
+    .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-top: 8px; }
+    .list-card {
+      background: var(--paper); border: 1px solid var(--line);
+      border-radius: var(--radius); padding: 24px;
+      box-shadow: var(--shadow-sm);
+    }
+    .list-card h3 { font-family: var(--serif); font-size: 18px; margin-bottom: 14px; }
+    .list-card ul { padding-left: 0; list-style: none; color: var(--muted); }
+    .list-card ul li {
+      display: flex; gap: 10px; align-items: flex-start;
+      padding: 8px 0; border-bottom: 1px solid var(--line); font-size: 14px;
+    }
+    .list-card ul li:last-child { border-bottom: none; }
+    .list-card ul li::before { content: "✓"; color: var(--accent); font-weight: 800; flex-shrink: 0; }
+
+    /* ====== Contact ====== */
+    .contact-card {
+      display: grid; grid-template-columns: repeat(3, minmax(0,1fr));
+      gap: 16px; margin-top: 8px;
+    }
+    .contact-item {
+      background: var(--paper); border: 1px solid var(--line);
+      border-radius: var(--radius); padding: 24px;
+      box-shadow: var(--shadow-sm);
+      transition: transform .2s;
+    }
+    .contact-item:hover { transform: translateY(-2px); }
+    .label {
+      font-size: 11px; text-transform: uppercase; letter-spacing: .1em;
+      color: var(--muted); margin-bottom: 8px; font-weight: 700;
+    }
+    .contact-item a {
+      color: var(--accent); font-weight: 700; text-decoration: none; font-size: 15px;
+      display: block;
+    }
+    .contact-item a:hover { opacity: .8; }
+    .contact-item p { font-weight: 600; font-size: 15px; }
+
+    /* ====== Footer ====== */
+    .footer { border-top: 1px solid var(--line); padding: 24px 0; }
+    .foot { display: flex; justify-content: space-between; gap: 16px; flex-wrap: wrap; }
+    .foot p { color: var(--muted); font-size: 13px; }
+
+    /* ====== Animations ====== */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    .fade-in { opacity: 0; transform: translateY(16px); transition: opacity .5s ease, transform .5s ease; }
+    .fade-in.visible { opacity: 1; transform: translateY(0); }
+
+    /* ====== Responsive ====== */
+    @media (max-width: 860px) {
+      .hero-grid { grid-template-columns: 1fr; }
+      .hero h1 { font-size: 36px; }
+      .grid { grid-template-columns: 1fr; }
+      .two-col { grid-template-columns: 1fr; }
+      .contact-card { grid-template-columns: 1fr; }
+      .timeline-item { grid-template-columns: 1fr; }
+      .timeline-date { text-align: left; margin-bottom: 6px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <header class="site-header" id="site-header">
+    <div class="wrap nav-wrap">
+      <a class="logo" href="#">Zohra Anwar <span>RevOps · CRM · GTM Enablement</span></a>
+      <nav class="nav">
+        <a href="#experience">Experience</a>
+        <a href="#projects">Projects</a>
+        <a href="#certs">Certs</a>
+        <a href="#contact" class="nav-cta">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+
+    <!-- HERO -->
+    <section class="hero">
+      <div class="wrap hero-grid">
+
+        <div class="hero-copy">
+          <p class="eyebrow">NYC · Open to Remote / Hybrid · Available Now</p>
+          <h1>The ops leader who speaks <em>both engineer and rep.</em></h1>
+          <p class="subhead">
+            Revenue Operations & Customer Success professional with 7+ years bridging CRM systems, GTM programs, and sales enablement. I build the workflows that make revenue teams actually work — from Salesforce architecture to cross-functional delivery.
+          </p>
+          <div class="btn-row">
+            <a class="btn primary" href="#contact">Get in touch</a>
+            <a class="btn" href="resume.pdf" target="_blank" rel="noopener">Download Resume ↓</a>
+            <a class="btn ghost" href="#projects">See Projects →</a>
+          </div>
+          <div class="meta">
+            <strong>Open to:</strong> Revenue Ops · Customer Operations · GTM Enablement · CRM Program Management
+          </div>
+        </div>
+
+        <div class="hero-card">
+          <!-- SWAP headshot.jpg with your photo file name, or delete this block to show placeholder -->
+          <div class="hero-photo-placeholder">
+            <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/></svg>
+            Add your headshot here
+          </div>
+          <!-- UN-COMMENT the line below once you have your photo:
+          <img class="hero-photo" src="headshot.jpg" alt="Zohra Anwar" />
+          -->
+          <div class="hero-card-inner">
+            <p class="card-title">Quick snapshot</p>
+            <ul class="card-list">
+              <li>Salesforce CRM build, admin & automation</li>
+              <li>GTM launch execution & sales SOPs</li>
+              <li>Payments, messaging & customer lifecycle ops</li>
+              <li>Certified Scrum Master · Full-stack consulting background</li>
+            </ul>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- EXPERIENCE -->
+    <section id="experience" class="section section-tint fade-in">
+      <div class="wrap">
+        <div class="section-head">
+          <h2>Experience</h2>
+          <p>The roles and results that shaped how I work.</p>
+        </div>
+
+        <div class="timeline">
+          <div class="timeline-item">
+            <div class="timeline-date">2022 – Present</div>
+            <div class="timeline-body">
+              <h3>Sales Enablement Program Manager</h3>
+              <div class="company">Channel & Go-to-Market Enablement · NYC</div>
+              <p>Owned GTM enablement programs for inside sales and channel partners — building SOPs, reactive messaging playbooks, and payment process documentation that reduced onboarding time by 35%. Administered Salesforce CRM workflows and led cross-functional scrum ceremonies across sales, ops, and product teams.</p>
+            </div>
+          </div>
+
+          <div class="timeline-item">
+            <div class="timeline-date">2019 – 2022</div>
+            <div class="timeline-body">
+              <h3>CRM Operations & Enablement Specialist</h3>
+              <div class="company">Revenue Operations · [Company] · NYC / Remote</div>
+              <p>Built and maintained Salesforce automation that reduced manual CRM overhead by 5+ hours/week. Designed rep-facing enablement content and KPI dashboards adopted across 3 sales teams. Managed Jira/Asana delivery pipelines with full epic-to-story breakdown.</p>
+            </div>
+          </div>
+
+          <div class="timeline-item">
+            <div class="timeline-date">2017 – 2019</div>
+            <div class="timeline-body">
+              <h3>Technical Consultant & Project Manager</h3>
+              <div class="company">Full-Stack Consulting · [Firm/Freelance]</div>
+              <p>Delivered full-stack web applications for clients across retail and fintech. Led agile sprints, managed client stakeholders, and translated technical requirements into product roadmaps — the foundation that now lets me bridge engineering and go-to-market teams fluently.</p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- PROJECTS -->
+    <section id="projects" class="section fade-in">
+      <div class="wrap">
+        <div class="section-head">
+          <h2>Projects</h2>
+          <p>Proof of execution — simple, real, and hiring-manager friendly.</p>
+        </div>
+
+        <div class="grid">
+          <article class="card">
+            <div class="card-icon">⚡</div>
+            <h3>Salesforce Lead Routing & CRM Automation</h3>
+            <p>End-to-end build: requirements gathering → workflow design → QA test plan → rollout checklist. Reduced lead response time by 40%.</p>
+            <div class="tags"><span>Salesforce</span><span>RevOps</span><span>Automation</span></div>
+            <a class="link" href="#" target="_blank" rel="noopener">View project →</a>
+          </article>
+
+          <article class="card">
+            <div class="card-icon">📋</div>
+            <h3>Inside Sales SOP & Reactive Messaging Playbook</h3>
+            <p>Built structured playbooks for inside sales reps covering objection handling, payment escalations, and async messaging cadences across channels.</p>
+            <div class="tags"><span>Enablement</span><span>GTM</span><span>SOPs</span></div>
+            <a class="link" href="#" target="_blank" rel="noopener">View project →</a>
+          </article>
+
+          <article class="card">
+            <div class="card-icon">📊</div>
+            <h3>GTM Onboarding Tracker & Ramp Metrics Dashboard</h3>
+            <p>Designed rep onboarding tracker with adoption scoring, ramp milestones, and exec-facing KPI dashboard. Cut time-to-productivity by 35%.</p>
+            <div class="tags"><span>Enablement</span><span>Metrics</span><span>Jira</span></div>
+            <a class="link" href="#" target="_blank" rel="noopener">View project →</a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- CERTS -->
+    <section id="certs" class="section section-tint fade-in">
+      <div class="wrap">
+        <div class="section-head">
+          <h2>Certifications & Awards</h2>
+          <p>Most relevant first — scannable in 10 seconds.</p>
+        </div>
+
+        <div class="two-col">
+          <div class="list-card">
+            <h3>Certifications</h3>
+            <ul>
+              <li>Certified ScrumMaster (CSM) — Scrum Alliance</li>
+              <li>Google Data Analytics Professional Certificate</li>
+              <li>Salesforce Trailhead Ranger</li>
+              <li>Salesforce AI Associate (if applicable)</li>
+            </ul>
+          </div>
+
+          <div class="list-card">
+            <h3>Impact & Awards</h3>
+            <ul>
+              <li>Reduced sales onboarding time by 35% via structured GTM programs</li>
+              <li>Built Salesforce automation saving 5+ hrs/week in manual ops work</li>
+              <li>Improved checkout & payment flow efficiency by 40% (Shopify project)</li>
+              <li>Exceeded enablement KPI targets across all measured quarters</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Education -->
+        <div style="margin-top:16px; padding:16px 20px; background:var(--paper); border:1px solid var(--line); border-radius:var(--radius); font-size:14px; color:var(--muted);">
+          <strong style="color:var(--ink);">Education</strong> · B.S. in [Your Major] · [University Name] · [Year]
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact" class="section fade-in">
+      <div class="wrap">
+        <div class="section-head">
+          <h2>Let's connect</h2>
+          <p>Actively interviewing — fastest response via email or LinkedIn. Based in NYC, open to remote or hybrid roles nationwide.</p>
+        </div>
+
+        <div class="contact-card">
+          <div class="contact-item">
+            <p class="label">Email</p>
+            <a href="/cdn-cgi/l/email-protection#e79e88929589868a82a7828a868e8bc984888a"><span class="__cf_email__" data-cfemail="90e9ffe5e2fef1fdf5d0f5fdf1f9fcbef3fffd">[email&#160;protected]</span></a>
+          </div>
+          <div class="contact-item">
+            <p class="label">LinkedIn</p>
+            <a href="https://linkedin.com/in/your-link" target="_blank" rel="noopener">linkedin.com/in/your-link</a>
+          </div>
+          <div class="contact-item">
+            <p class="label">Location</p>
+            <p>NYC · Open to Remote/Hybrid</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="footer">
+    <div class="wrap foot">
+      <p>© <span id="year"></span> Zohra Anwar · All rights reserved</p>
+      <p>Built with HTML/CSS · Hosted free on GitHub Pages</p>
+    </div>
+  </footer>
+
+  <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+    // Year
+    document.getElementById("year").textContent = new Date().getFullYear();
+
+    // Sticky nav shadow
+    const header = document.getElementById("site-header");
+    window.addEventListener("scroll", () => {
+      header.classList.toggle("scrolled", window.scrollY > 10);
+    });
+
+    // Scroll fade-in
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
