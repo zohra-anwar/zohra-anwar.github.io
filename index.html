@@ -136,16 +136,23 @@
       .hero::before {
         content: "";
         position: absolute;
-        width: 500px;
-        height: 500px;
-        background: radial-gradient(
-          circle,
-          rgba(45, 106, 79, 0.08) 0%,
-          transparent 70%
-        );
-        top: -100px;
-        right: -100px;
+        width: 600px;
+        height: 600px;
+        background:
+          radial-gradient(
+            circle at 30% 30%,
+            rgba(45, 106, 79, 0.12),
+            transparent 60%
+          ),
+          radial-gradient(
+            circle at 80% 70%,
+            rgba(183, 212, 200, 0.18),
+            transparent 70%
+          );
+        top: -120px;
+        right: -120px;
         pointer-events: none;
+        filter: blur(20px);
       }
       .hero-grid {
         display: grid;
@@ -180,6 +187,39 @@
         font-size: 8px;
         animation: pulse 2s infinite;
       }
+      /* Impact Section */
+
+      .impact-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+        gap: 24px;
+        margin-top: 30px;
+      }
+
+      .impact-card {
+        background: white;
+        padding: 28px;
+        border-radius: 12px;
+        box-shadow: var(--shadow-sm);
+        transition: all 0.25s ease;
+      }
+
+      .impact-card:hover {
+        transform: translateY(-6px);
+        box-shadow: 0 20px 60px rgba(26, 34, 40, 0.15);
+      }
+
+      .impact-card h3 {
+        font-size: 32px;
+        margin-bottom: 8px;
+        color: var(--green-deep);
+      }
+
+      .impact-card p {
+        font-size: 14px;
+        line-height: 1.5;
+        color: #555;
+      }
       @keyframes pulse {
         0%,
         100% {
@@ -190,11 +230,9 @@
         }
       }
       .hero h1 {
-        font-family: var(--serif);
-        font-size: 48px;
-        line-height: 1.08;
-        letter-spacing: -0.025em;
-        margin-bottom: 16px;
+        font-size: 52px;
+        letter-spacing: -0.035em;
+        line-height: 1.05;
       }
       .hero h1 em {
         font-style: italic;
@@ -230,7 +268,7 @@
       }
       .btn:hover {
         transform: translateY(-2px);
-        box-shadow: 0 8px 24px rgba(26, 34, 40, 0.12);
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
       }
       .btn.primary {
         background: var(--accent);
@@ -358,8 +396,8 @@
           box-shadow 0.2s;
       }
       .card:hover {
-        transform: translateY(-3px);
-        box-shadow: var(--shadow-md);
+        transform: translateY(-6px) scale(1.01);
+        box-shadow: 0 20px 60px rgba(26, 34, 40, 0.18);
       }
       .card-icon {
         width: 40px;
@@ -716,15 +754,19 @@
       </div>
     </header>
     <main>
+      <!-- Hero  -->
       <section class="hero">
         <div class="wrap hero-grid">
           <div class="hero-copy">
             <p class="eyebrow">NYC · Open to Remote / Hybrid · Available Now</p>
-            <h1>The ops leader who speaks <em>both engineer and rep.</em></h1>
+            <h1>
+              Revenue Operations & Salesforce Program Manager
+              <em>who bridges engineering and revenue.</em>
+            </h1>
             <p class="subhead">
               Revenue Operations & Customer Success professional with 7+ years
               bridging CRM systems, GTM programs, and sales enablement. I build
-              the workflows that make revenue teams actually work — from
+              the workflows that make revenue teams actually work, from
               Salesforce architecture to cross-functional delivery.
             </p>
             <div class="btn-row">
@@ -740,101 +782,212 @@
             </div>
           </div>
           <div class="hero-card">
-            <!-- TO ADD YOUR PHOTO:
-               1. Name your photo file: headshot.jpg
-               2. Put it in the same folder as index.html
-               3. Delete the div.hero-photo-placeholder block below
-               4. Remove the comment marks around the img tag below that -->
-
-            <div class="hero-photo-placeholder">
-              <svg
-                width="48"
-                height="48"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="1.5"
-              >
-                <circle cx="12" cy="8" r="4" />
-                <path d="M4 20c0-4 3.6-7 8-7s8 3 8 7" />
-              </svg>
-              <img class="hero-photo" src="headshot.jpeg" alt="Zohra Anwar" />
-            </div>
-            <!-- <img class="hero-photo" src="headshot.jpg" alt="Zohra Anwar" /> -->
+            <img class="hero-photo" src="headshot.jpeg" alt="Zohra Anwar" />
             <div class="hero-card-inner">
               <p class="card-title">Quick snapshot</p>
               <ul class="card-list">
-                <li>Salesforce CRM build, admin & automation</li>
-                <li>GTM launch execution & sales SOPs</li>
-                <li>Payments, messaging & customer lifecycle ops</li>
-                <li>
-                  Certified Scrum Master · Full-stack consulting background
-                </li>
+                <li>Salesforce CRM architecture, admin &amp; automation</li>
+                <li>Cross-functional GTM execution &amp; sales SOPs</li>
+                <li>$3M+ cost savings &middot; 45% CRM adoption gains</li>
+                <li>Full-stack engineering + C-suite communication</li>
+                <li>Certified Scrum Master</li>
               </ul>
             </div>
           </div>
         </div>
       </section>
 
+      <!-- Business Impact -->
+
+      <section id="impact" class="section fade-in">
+        <div class="wrap">
+          <div class="section-head">
+            <h2>Business Impact</h2>
+            <p>
+              Quantifiable outcomes across revenue operations, Salesforce
+              transformation, and sales technology.
+            </p>
+          </div>
+
+          <div class="impact-grid">
+            <div class="impact-card">
+              <h3>$3M+</h3>
+              <p>
+                Operational cost savings identified through database license
+                optimization and sourcing platform renegotiation.
+              </p>
+            </div>
+
+            <div class="impact-card">
+              <h3>45%</h3>
+              <p>
+                Increase in CRM adoption across enterprise Salesforce
+                implementations for Fortune 500 clients.
+              </p>
+            </div>
+
+            <div class="impact-card">
+              <h3>500+</h3>
+              <p>
+                Sales representatives supported through redesigned enablement
+                systems and the North America Sales Resource Hub.
+              </p>
+            </div>
+
+            <div class="impact-card">
+              <h3>40%</h3>
+              <p>
+                Improvement in sales workflow efficiency after rebuilding the
+                North America GTM enablement architecture.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- Experience -->
       <section id="experience" class="section section-tint fade-in">
         <div class="wrap">
           <div class="section-head">
             <h2>Experience</h2>
             <p>The roles and results that shaped how I work.</p>
           </div>
+          <!-- Peloton  -->
           <div class="timeline">
             <div class="timeline-item">
-              <div class="timeline-date">2022 – Present</div>
+              <div class="timeline-date">Dec 2024&ndash;Present</div>
               <div class="timeline-body">
-                <h3>Sales Enablement Program Manager</h3>
-                <div class="company">
-                  Channel & Go-to-Market Enablement · NYC
+                <h3>
+                  Revenue Operations Manager &mdash; Sales Technology &amp; CRM
+                </h3>
+                <div class="company">Peloton &middot; New York, NY</div>
+                <div class="company">Channel & Go-to-Market Enablement</div>
+                <div class="int-title">
+                  Internal title: CRM &amp; Sales Operations Specialist /
+                  Technical Product Manager
                 </div>
-                <p>
-                  Owned GTM enablement programs for inside sales and channel
-                  partners — building SOPs, reactive messaging playbooks, and
-                  payment process documentation that reduced onboarding time by
-                  35%. Administered Salesforce CRM workflows and led
-                  cross-functional scrum ceremonies across sales, ops, and
-                  product teams.
-                </p>
+                <ul>
+                  <li>
+                    <strong>300% KPI uplift</strong> &mdash; designed and
+                    deployed AI-driven Salesforce CRM workflows and performance
+                    dashboards across 6 regional North America sales teams.
+                  </li>
+                  <li>
+                    <strong
+                      >Payment recovery SOP adopted across all USA sales
+                      teams</strong
+                    >
+                    &mdash; identified a critical revenue gap in the payment
+                    capture process, built step-by-step guides for both reps and
+                    clients to resolve failed payments, and escalated directly
+                    to the VP of Enterprise Applications. Initiative recovered
+                    <strong>30% in net sales per quarter</strong> and triggered
+                    a company-wide system fix.
+                  </li>
+                  <li>
+                    <strong
+                      >40% improvement in sales workflow efficiency</strong
+                    >
+                    &mdash; rebuilt the North America Sales Resource Hub for
+                    500+ reps, modernizing content architecture, tooling, and
+                    GTM campaign delivery.
+                  </li>
+                  <li>
+                    Standardized Salesforce CRM data governance and compliance
+                    across all North America regions, improving data integrity
+                    and cross-team visibility.
+                  </li>
+                  <li>
+                    Presented revenue operations roadmap, adoption metrics, and
+                    program results directly to VP-level leadership.
+                  </li>
+                </ul>
               </div>
             </div>
+            <!-- Fidelis  -->
             <div class="timeline-item">
-              <div class="timeline-date">2019 – 2022</div>
+              <div class="timeline-date">Feb&ndash;Nov 2024</div>
               <div class="timeline-body">
-                <h3>CRM Operations & Enablement Specialist</h3>
-                <div class="company">
-                  Revenue Operations · [Company] · NYC / Remote
-                </div>
-                <p>
-                  Built and maintained Salesforce automation that reduced manual
-                  CRM overhead by 5+ hours/week. Designed rep-facing enablement
-                  content and KPI dashboards adopted across 3 sales teams.
-                  Managed Jira/Asana delivery pipelines with full epic-to-story
-                  breakdown.
-                </p>
+                <h3>Salesforce Operations Consultant</h3>
+                <div class="company">Fidelis Care &middot; New York, NY</div>
+                <ul>
+                  <li>
+                    Centralized Salesforce workflows and advised on process
+                    improvements &mdash; contributing to a
+                    <strong>30% increase in data accuracy</strong> and
+                    operational reliability.
+                  </li>
+                </ul>
               </div>
             </div>
+            <!-- Kearney  -->
             <div class="timeline-item">
-              <div class="timeline-date">2017 – 2019</div>
+              <div class="timeline-date">Jan 2020&ndash;Jul 2023</div>
               <div class="timeline-body">
-                <h3>Technical Consultant & Project Manager</h3>
+                <h3>Revenue Operations &amp; Salesforce Program Manager</h3>
                 <div class="company">
-                  Full-Stack Consulting · [Firm/Freelance]
+                  Kearney (Top-10 Global Management Consulting) &middot; New
+                  York, NY
                 </div>
-                <p>
-                  Delivered full-stack web applications for clients across
-                  retail and fintech. Led agile sprints, managed client
-                  stakeholders, and translated technical requirements into
-                  product roadmaps — the foundation that lets me bridge
-                  engineering and go-to-market teams fluently.
-                </p>
+                <div class="int-title">
+                  Clients: Johnson &amp; Johnson &middot; GlaxoSmithKline
+                  &middot; Fidelity &middot; L&rsquo;Or&eacute;al &middot;
+                  Reckitt Benckiser &middot; Euromoney
+                </div>
+                <ul>
+                  <li>
+                    <strong>$3M+ in cost savings</strong> &mdash; identified
+                    unused database licenses and renegotiated sourcing
+                    platforms; directly contributed to a 30% company revenue
+                    increase.
+                  </li>
+                  <li>
+                    <strong>45% CRM adoption increase</strong> across enterprise
+                    Salesforce transformations for Fortune 500 clients globally.
+                  </li>
+                  <li>
+                    <strong>50% reduction in QA overhead</strong> &mdash;
+                    automated 25+ regression test cases using Selenium, Katalon
+                    Studio, and Groovy WebDriver.
+                  </li>
+                  <li>
+                    Served as the primary business-to-technology translator
+                    &mdash; presented program impact to CEOs, CTOs, VPs, and
+                    Kearney Partners at every engagement.
+                  </li>
+                  <li>
+                    Built a live AR hair color try-on app for
+                    L&rsquo;Or&eacute;al using Banuba SDK, React, and HTML/CSS
+                    &mdash; deployed on Vercel.
+                  </li>
+                  <li>
+                    Scaled global teams across USA, London, and Australia
+                    &mdash; led hiring, onboarding, and Center of Excellence
+                    knowledge transfer.
+                  </li>
+                </ul>
+              </div>
+            </div>
+            <!-- TechRowFund -->
+            <div class="timeline-item">
+              <div class="timeline-date">Aug 2019&ndash;Jan 2020</div>
+              <div class="timeline-body">
+                <h3>Front-End Developer</h3>
+                <div class="company">
+                  TechRow Fund (Non-Profit) &middot; New York, NY
+                </div>
+                <ul>
+                  <li>
+                    <strong>35% increase in platform engagement</strong> &mdash;
+                    redesigned UI/UX to improve accessibility for educational
+                    programs serving underrepresented communities.
+                  </li>
+                </ul>
               </div>
             </div>
           </div>
         </div>
       </section>
+      <!-- Projects  -->
 
       <section id="projects" class="section fade-in">
         <div class="wrap">
@@ -844,6 +997,7 @@
               Proof of execution — simple, real, and hiring-manager friendly.
             </p>
           </div>
+          <!-- Project1  -->
           <div class="grid">
             <article class="card">
               <div class="card-icon">⚡</div>
@@ -857,10 +1011,9 @@
                 <span>Salesforce</span><span>RevOps</span
                 ><span>Automation</span>
               </div>
-              <a class="link" href="#" target="_blank" rel="noopener"
-                >View project →</a
-              >
             </article>
+
+            <!-- Project2  -->
             <article class="card">
               <div class="card-icon">📋</div>
               <h3>Inside Sales SOP & Reactive Messaging Playbook</h3>
@@ -872,10 +1025,9 @@
               <div class="tags">
                 <span>Enablement</span><span>GTM</span><span>SOPs</span>
               </div>
-              <a class="link" href="#" target="_blank" rel="noopener"
-                >View project →</a
-              >
             </article>
+
+            <!-- Project3  -->
             <article class="card">
               <div class="card-icon">📊</div>
               <h3>GTM Onboarding Tracker & Ramp Metrics Dashboard</h3>
@@ -887,14 +1039,12 @@
               <div class="tags">
                 <span>Enablement</span><span>Metrics</span><span>Jira</span>
               </div>
-              <a class="link" href="#" target="_blank" rel="noopener"
-                >View project →</a
-              >
             </article>
           </div>
         </div>
       </section>
 
+      <!-- Certifications & Awards -->
       <section id="certs" class="section section-tint fade-in">
         <div class="wrap">
           <div class="section-head">
@@ -912,6 +1062,8 @@
               </ul>
             </div>
             <div class="list-card">
+              <!-- Impact & Awards -->
+
               <h3>Impact & Awards</h3>
               <ul>
                 <li>
@@ -943,8 +1095,8 @@
               color: var(--muted);
             "
           >
-            <strong style="color: var(--ink)">Education</strong> · B.S. in [Your
-            Major] · [University Name] · [Year]
+            <strong style="color: var(--ink)">Education</strong> · B.S. in
+            Biochemistry · Hunter College
           </div>
         </div>
       </section>
@@ -962,15 +1114,15 @@
             <div class="contact-info">
               <div class="contact-item">
                 <p class="label">Email</p>
-                <a href="mailto:YOUR-EMAIL@gmail.com">YOUR-EMAIL@gmail.com</a>
+                <a href="mailto:YOUR-EMAIL@gmail.com">anzohra01@gmail.com</a>
               </div>
               <div class="contact-item">
                 <p class="label">LinkedIn</p>
                 <a
-                  href="https://linkedin.com/in/YOUR-LINKEDIN-SLUG"
+                  href="https://linkedin.com/in/zohra-anwar/"
                   target="_blank"
                   rel="noopener"
-                  >linkedin.com/in/YOUR-LINKEDIN-SLUG</a
+                  >linkedin.com/in/zohra-anwar/</a
                 >
               </div>
               <div class="contact-item">
